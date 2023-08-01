@@ -4,7 +4,14 @@ This project was developed for education purposes. Feel free to use :)
 
 ## 🚀 Start using it
 
-Open the project directory with your favorite editor. Then click Build & Run!
+1. Open the project directory with your favorite editor. Wait for synchronization.
+2. Intelij IDEA -> Preferences -> Build,Execution,Deployment -> Compiler -> Build project automatically
+3. Intelij IDEA -> Preferences -> Advanced Settings -> Allow auto-make to start even if developed application is currently running
+4. Intelij IDEA -> Run/Debug Configurations -> Modify options -> Add before launch task -> 1. Build Project -> 2. Build
+5. Check src/main/java/resources/application.properties for these lines;
+   - spring.devtools.restart.enabled=true
+   - spring.devtools.restart.additional-paths=src/main/java
+4. Then click Build & Run!
 
 ## 🧬 Folder structure
 
