@@ -30,11 +30,11 @@ This is the structure of the files in the app tier:
     ├── README.md
 ```
 
-### CI/CD
+# CI/CD
 
 Will be add
 
-### Deployment
+# Deployment
 
 Will be add
 
