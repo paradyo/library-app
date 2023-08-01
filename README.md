@@ -15,14 +15,18 @@ This is the structure of the files in the app tier:
     ├── src
     │   ├── main
     │   │   ├── java
-    │   │   │   ├── com.library.app
+    │   │   │   ├── com.engineer.library
+    │   │   │   │   ├── controller                          # Contains the Spring MVC controllers that handle HTTP requests.
+    │   │   │   │   ├── model                               # Houses the data models or entities for your application.
+    │   │   │   │   ├── service                             # Implements the business logic and acts as an intermediary between the controllers and repositories.
+    │   │   │   │   ├── repository                          # Handles data access and interactions with the database.
     │   │   │   ├── resources
-    │   │   │   │   ├── static
-    │   │   │   │   ├── templates
-    │   │   │   │   ├── application.properties
+    │   │   │   │   ├── static                              # Project-wide static files.
+    │   │   │   │   ├── templates                           # Project-wide templates.
+    │   │   │   │   ├── application.properties              # Project-specific configurations.
     │   ├── test
     │   │   ├── java
-    │   │   │   ├── com.library.app                   # test files
+    │   │   │   ├── com.engineer.library                    # Contains test-related files and classes.
     ├── mvnw
     ├── mvnw.cmd
     ├── .gitignore
@@ -32,11 +36,11 @@ This is the structure of the files in the app tier:
 
 ## CI/CD
 
-Will be add
+Will be here soon
 
 ## Deployment
 
-Will be add
+Will be here soon
 
 ## ⚗️ Technologies list
 
