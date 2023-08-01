@@ -6,7 +6,7 @@ This project was developed for education purposes. Feel free to use :)
 
 Open the project directory with your favorite editor. Then click Build & Run!
 
-# 🧬 Folder structure
+## 🧬 Folder structure
 
 This is the structure of the files in the app tier:
 
@@ -47,11 +47,11 @@ Will be add
 - Spring Data JPA
 - Spring Boot Actuator
 
-# ⚠️ Warning
+## ⚠️ Warning
 
 Cloning this repo makes you better developer. Be careful!
 
-# 📖 Learn More
+## 📖 Learn More
 
 - [My website: ](https://emrecan.co/) – Contact with me!
 - [My Youtube channel](https://www.youtube.com/channel/UCHnhd6yOwxKyQTZU1yDqV0w) – Sharing my experience in whole my career.
