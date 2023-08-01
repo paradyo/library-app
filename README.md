@@ -16,10 +16,10 @@ This is the structure of the files in the app tier:
     │   ├── main
     │   │   ├── java
     │   │   │   ├── com.library.app
-    │   │   ├── resources
-    │   │   │   ├── static
-    │   │   │   ├── templates
-    │   │   │   ├── application.properties
+    │   │   │   ├── resources
+    │   │   │   │   ├── static
+    │   │   │   │   ├── templates
+    │   │   │   │   ├── application.properties
     │   ├── test
     │   │   ├── java
     │   │   │   ├── com.library.app                   # test files
