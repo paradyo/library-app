@@ -11,7 +11,9 @@ This project was developed for education purposes. Feel free to use :)
 5. Check src/main/java/resources/application.properties for these lines;
    - spring.devtools.restart.enabled=true
    - spring.devtools.restart.additional-paths=src/main/java
-4. Then click Build & Run!
+6. Install MySQL via Docker!
+   - ```docker run --detach --env MYSQL_ROOT_PASSWORD=testpass --env MYSQL_USER=testuser --env MYSQL_PASSWORD=testpass --env MYSQL_DATABASE=library --name mysql --publish 3306:3306 mysql:8-oracle```
+7. Then click Build & Run!
 
 ## 🧬 Folder structure
 
@@ -23,10 +25,13 @@ This is the structure of the files in the app tier:
     │   ├── main
     │   │   ├── java
     │   │   │   ├── com.engineer.library
+    │   │   │   │   ├── configuration                       # Contains the Spring configuration files.
     │   │   │   │   ├── controller                          # Contains the Spring MVC controllers that handle HTTP requests.
+    │   │   │   │   ├── exception                           # Contains the custom exception files.
     │   │   │   │   ├── model                               # Houses the data models or entities for your application.
-    │   │   │   │   ├── service                             # Implements the business logic and acts as an intermediary between the controllers and repositories.
     │   │   │   │   ├── repository                          # Handles data access and interactions with the database.
+    │   │   │   │   ├── service                             # Contains the business logic, DTO and other things related to any service.
+    │   │   │   │   ├── LibraryApplication.java             # SpringBootApplication configuration file.
     │   │   │   ├── resources
     │   │   │   │   ├── static                              # Project-wide static files.
     │   │   │   │   ├── templates                           # Project-wide templates.
@@ -57,6 +62,7 @@ Will be here soon
 - Validation
 - Spring Data JPA
 - Spring Boot Actuator
+- [MySQL Connector J](https://dev.mysql.com/doc/connector-j/8.1/en/connector-j-installing-maven.html)
 
 ## ⚠️ Warning
 
