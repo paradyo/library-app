@@ -2,6 +2,7 @@ package com.engineer.library.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class User {
@@ -9,8 +10,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
     private int id;
+    @NotNull
     private String fullName;
+    @NotNull
     private String email;
+    @NotNull
     private String password;
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonManagedReference
