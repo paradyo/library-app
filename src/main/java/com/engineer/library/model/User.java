@@ -29,7 +29,7 @@ public class User {
     private Role role;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @JsonManagedReference(value = "guest_id")
+    @JsonManagedReference(value = "user_id")
     private List<GuestBook> guestBooks;
 
     public User() {}
