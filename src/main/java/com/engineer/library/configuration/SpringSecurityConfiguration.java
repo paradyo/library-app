@@ -50,7 +50,7 @@ public class SpringSecurityConfiguration {
                 );
         httpSecurity.httpBasic(Customizer.withDefaults());
 
-        httpSecurity.csrf().disable();
+        httpSecurity.csrf().disable().cors();
         httpSecurity.headers().frameOptions().disable();
 
         return httpSecurity.build();
