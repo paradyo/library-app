@@ -13,6 +13,7 @@ import com.engineer.library.repository.RoleRepository;
 import com.engineer.library.repository.UserRepository;
 import com.engineer.library.service.BookDTO;
 import com.engineer.library.service.CustomPageResponse;
+import com.engineer.library.service.UserCredentialsRequest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -190,5 +191,25 @@ public class UserController {
         User createdUser = userRepository.save(userToCreate);
 
         return ResponseEntity.ok(createdUser);
+    }
+
+    @PostMapping("/authenticate")
+    public ResponseEntity<Boolean> authenticateUser(@RequestBody UserCredentialsRequest credentials) throws UserNotFoundException {
+        String email = credentials.getEmail();
+        String password = credentials.getPassword();
+
+        // Retrieve the user by email from the database
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        if (userOptional.isEmpty()) {
+            // User with the given email not found
+            throw new UserNotFoundException("There is no user with this email.");
+        }
+
+        User user = userOptional.get();
+
+        // Check if the password matches the user's password in the database
+        boolean isAuthenticated = user.getPassword().equals(password);
+
+        return ResponseEntity.ok(isAuthenticated);
     }
 }
