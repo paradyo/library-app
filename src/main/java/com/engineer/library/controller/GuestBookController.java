@@ -31,12 +31,10 @@ import java.util.stream.Collectors;
 public class GuestBookController {
     private final UserRepository userRepository;
     private final BookRepository bookRepository;
-    private final RoleRepository roleRepository;
     private final GuestBookRepository guestBookRepository;
 
-    public GuestBookController(UserRepository userRepository, RoleRepository roleRepository, GuestBookRepository guestBookRepository, BookRepository bookRepository) {
+    public GuestBookController(UserRepository userRepository, GuestBookRepository guestBookRepository, BookRepository bookRepository) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
         this.guestBookRepository = guestBookRepository;
         this.bookRepository = bookRepository;
     }
