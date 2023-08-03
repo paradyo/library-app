@@ -1,7 +1,10 @@
 package com.engineer.library.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.List;
 
 @Entity
 public class Book {
@@ -16,6 +19,10 @@ public class Book {
     @Column(name = "image_s3_id")
     private String imageS3Id;
     private boolean isVisible;
+
+    @OneToMany(mappedBy = "book", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonManagedReference(value = "book_id")
+    private List<GuestBook> guestBooks;
 
     @Transient
     private String nextPageUrl;
@@ -85,5 +92,13 @@ public class Book {
 
     public String getPrevPageUrl() {
         return prevPageUrl;
+    }
+
+    public List<GuestBook> getGuestBooks() {
+        return guestBooks;
+    }
+
+    public void setGuestBooks(List<GuestBook> guestBooks) {
+        this.guestBooks = guestBooks;
     }
 }

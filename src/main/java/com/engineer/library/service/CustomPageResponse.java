@@ -5,8 +5,8 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-public class BookPageResponse {
-    private List<Book> content;
+public class CustomPageResponse {
+    private List<?> content;
     private String nextPageUrl;
     private String prevPageUrl;
     private Pageable pageable;
@@ -16,7 +16,7 @@ public class BookPageResponse {
     private boolean isFirst;
     private boolean isLast;
 
-    public BookPageResponse(List<Book> content, String nextPageUrl, String prevPageUrl, Pageable pageable, int totalPages, long totalElements, int numberOfElements, boolean isFirst, boolean isLast) {
+    public CustomPageResponse(List<?> content, String nextPageUrl, String prevPageUrl, Pageable pageable, int totalPages, long totalElements, int numberOfElements, boolean isFirst, boolean isLast) {
         this.content = content;
         this.nextPageUrl = nextPageUrl;
         this.prevPageUrl = prevPageUrl;
@@ -30,7 +30,7 @@ public class BookPageResponse {
 
     // Other getters and setters
 
-    public List<Book> getContent() {
+    public List<?> getContent() {
         return content;
     }
 

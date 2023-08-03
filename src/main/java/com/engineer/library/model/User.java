@@ -1,8 +1,13 @@
 package com.engineer.library.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.List;
 
 @Entity
 public class User {
@@ -16,9 +21,16 @@ public class User {
     private String email;
     @NotNull
     private String password;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @JsonBackReference(value = "role_id")
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
     private Role role;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JsonManagedReference(value = "guest_id")
+    private List<GuestBook> guestBooks;
 
     public User() {}
 
@@ -67,5 +79,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public List<GuestBook> getGuestBooks() {
+        return guestBooks;
+    }
+
+    public void setGuestBooks(List<GuestBook> guestBooks) {
+        this.guestBooks = guestBooks;
     }
 }

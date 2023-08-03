@@ -22,7 +22,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query("SELECT b FROM Book b WHERE b.name = :name AND b.author = :author")
     Page<Book> findByNameAndAuthor(String name, String author, Pageable pageable);
 
-    // Custom method to search books by title (case-insensitive)
+    // Custom method to search books by name (case-insensitive)
     Page<Book> findByNameContainingIgnoreCase(String name, Pageable pageable);
 
     // Custom method to search books by author (case-insensitive)

@@ -5,9 +5,8 @@ import com.engineer.library.exception.BookNotFoundException;
 import com.engineer.library.exception.RequestBodyException;
 import com.engineer.library.model.Book;
 import com.engineer.library.repository.BookRepository;
-import com.engineer.library.repository.UserRepository;
 import com.engineer.library.service.BookDTO;
-import com.engineer.library.service.BookPageResponse;
+import com.engineer.library.service.CustomPageResponse;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -30,7 +28,7 @@ public class BookController {
 
     @GetMapping(path = "/books", headers = Constant.API_VERSION_HEADER_NAME + "=v1.0")
     @Cacheable("books")
-    public BookPageResponse getBooksV1dot0(
+    public CustomPageResponse getBooksV1dot0(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String author,
             @RequestParam(required = false) String search,
@@ -78,7 +76,7 @@ public class BookController {
 
         if (name != null) {
             nextUriBuilder.queryParam("name", name);
-            prevUriBuilder.queryParam("title", name);
+            prevUriBuilder.queryParam("name", name);
         }
         if (author != null) {
             nextUriBuilder.queryParam("author", author);
@@ -103,7 +101,7 @@ public class BookController {
         }
 
         // Create the response object with content and pagination information
-        return new BookPageResponse(result.getContent(), nextPageUrl, prevPageUrl, result.getPageable(), result.getTotalPages(), result.getTotalElements(), result.getNumberOfElements(), result.isFirst(), result.isLast());
+        return new CustomPageResponse(result.getContent(), nextPageUrl, prevPageUrl, result.getPageable(), result.getTotalPages(), result.getTotalElements(), result.getNumberOfElements(), result.isFirst(), result.isLast());
     }
 
     @GetMapping(path = "/books/{id}", headers = Constant.API_VERSION_HEADER_NAME + "=v1.0")
