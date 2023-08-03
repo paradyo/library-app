@@ -30,12 +30,10 @@ import java.util.Optional;
 public class UserController {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private GuestBookRepository guestBookRepository;
 
-    public UserController(UserRepository userRepository, RoleRepository roleRepository, GuestBookRepository guestBookRepository) {
+    public UserController(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-        this.guestBookRepository = guestBookRepository;
     }
 
     @GetMapping(path = "/users", headers = Constant.API_VERSION_HEADER_NAME + "=v1.0")
