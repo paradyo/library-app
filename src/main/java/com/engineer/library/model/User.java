@@ -18,6 +18,8 @@ public class User {
     @NotNull
     private String fullName;
     @NotNull
+    private String username;
+    @NotNull
     private String email;
     @NotNull
     private String password;
@@ -87,5 +89,13 @@ public class User {
 
     public void setGuestBooks(List<GuestBook> guestBooks) {
         this.guestBooks = guestBooks;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

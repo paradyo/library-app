@@ -193,23 +193,9 @@ public class UserController {
         return ResponseEntity.ok(createdUser);
     }
 
-    @PostMapping("/authenticate")
-    public ResponseEntity<Boolean> authenticateUser(@RequestBody UserCredentialsRequest credentials) throws UserNotFoundException {
-        String email = credentials.getEmail();
-        String password = credentials.getPassword();
-
-        // Retrieve the user by email from the database
-        Optional<User> userOptional = userRepository.findByEmail(email);
-        if (userOptional.isEmpty()) {
-            // User with the given email not found
-            throw new UserNotFoundException("There is no user with this email.");
-        }
-
-        User user = userOptional.get();
-
-        // Check if the password matches the user's password in the database
-        boolean isAuthenticated = user.getPassword().equals(password);
-
-        return ResponseEntity.ok(isAuthenticated);
+    @GetMapping("/authenticate")
+    public boolean authenticateUser() {
+        // Check if the user successfully access this method via Headers!
+        return true;
     }
 }
