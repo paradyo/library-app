@@ -1,4 +1,4 @@
-# Library APP
+# 🤠 Library APP 🤠
 
 This project was developed for education purposes. Feel free to use :)
 
