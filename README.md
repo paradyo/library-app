@@ -17,6 +17,10 @@ This project was developed for education purposes. Feel free to use :)
 
 NOTE: Every mock data's password is 'testpass'.
 
+## 🥸 REST API Documentation
+
+[Click here for REST API docs and design.](https://documenter.getpostman.com/view/12550271/2s9XxyRDBY)
+
 ## 🧬 Folder structure
 
 This is the structure of the files in the app tier:
@@ -49,11 +53,11 @@ This is the structure of the files in the app tier:
     ├── README.md
 ```
 
-## CI/CD
+## 🤕 CI/CD
 
 Will be here soon
 
-## Deployment
+## 😴 Deployment
 
 Will be here soon
 
