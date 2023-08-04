@@ -15,6 +15,8 @@ This project was developed for education purposes. Feel free to use :)
    - ```docker run --detach --env MYSQL_ROOT_PASSWORD=testpass --env MYSQL_USER=testuser --env MYSQL_PASSWORD=testpass --env MYSQL_DATABASE=library --name mysql --publish 3306:3306 mysql:8-oracle```
 7. Then click Build & Run!
 
+NOTE: Every mock data's password is 'testpass'.
+
 ## 🧬 Folder structure
 
 This is the structure of the files in the app tier:
