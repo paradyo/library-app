@@ -24,11 +24,6 @@ public class Book {
     @JsonManagedReference(value = "book_id")
     private List<GuestBook> guestBooks;
 
-    @Transient
-    private String nextPageUrl;
-    @Transient
-    private String prevPageUrl;
-
     public Book() {}
 
     public Book(String name, String author, String imageS3Id, boolean isVisible) {
@@ -76,22 +71,6 @@ public class Book {
 
     public void setVisible(boolean visible) {
         isVisible = visible;
-    }
-
-    public void setNextPageUrl(String nextPageUrl) {
-        this.nextPageUrl = nextPageUrl;
-    }
-
-    public void setPrevPageUrl(String prevPageUrl) {
-        this.prevPageUrl = prevPageUrl;
-    }
-
-    public String getNextPageUrl() {
-        return nextPageUrl;
-    }
-
-    public String getPrevPageUrl() {
-        return prevPageUrl;
     }
 
     public List<GuestBook> getGuestBooks() {

@@ -240,29 +240,4 @@ public class BookController {
 
         return ResponseEntity.ok(createdBookDTO);
     }
-
-    /*
-    @GetMapping(path = "/users/{id}/posts")
-    public List<Post> getUserPosts(@PathVariable int id) throws RuntimeException {
-        Optional<User> user = userRepository.findById(id);
-        if (user.isEmpty()) {
-            throw new UserNotFoundException("Can't find the user.");
-        }
-        return user.get().getPosts();
-    }
-    @PostMapping(path = "/users/{id}/posts")
-    public ResponseEntity<Post> createPostForUser(@PathVariable int id, @Valid @RequestBody Post post) throws RuntimeException {
-        Optional<User> user = userRepository.findById(id);
-        if(user.isEmpty()){
-            throw new UserNotFoundException();
-        }
-        post.setUser(user.get());
-        Post savedPost = postRepository.save(post);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(savedPost.getId())
-                .toUri();
-        return ResponseEntity.created(location).build();
-    }
-     */
 }
