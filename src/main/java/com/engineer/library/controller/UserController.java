@@ -24,6 +24,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +44,7 @@ public class UserController {
             @RequestParam(defaultValue = "asc") String sortDirection,
             @RequestParam(defaultValue = "id") String sortBy,
             Pageable pageable
-    ){
+    ) {
         Sort sort = Sort.by(Sort.Direction.fromString(sortDirection), sortBy);
         pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
         // Prepare the filtering criteria
@@ -179,7 +180,7 @@ public class UserController {
     @PostMapping("/roles/{id}/users")
     public ResponseEntity<User> createUser(@PathVariable int id, @RequestBody User user) throws RoleNotFoundException {
         Optional<Role> role = roleRepository.findById(id);
-        if(role.isEmpty()){
+        if (role.isEmpty()) {
             throw new RoleNotFoundException("There is no role with this id.");
         }
         // PPerform validation and any necessary operations before creating the book
@@ -197,5 +198,42 @@ public class UserController {
     public boolean authenticateUser() {
         // Check if the user successfully access this method via Headers!
         return true;
+    }
+
+    @GetMapping("/users/me")
+    public User getLoggedInUser(@RequestHeader("Authorization") String authorizationHeader) {
+        // Extract the encoded credentials from the Authorization header
+        String encodedCredentials = extractEncodedCredentials(authorizationHeader);
+
+        // Decode the credentials to get username and password
+        String[] credentials = decodeCredentials(encodedCredentials);
+
+        // Here, you can authenticate the user and retrieve user information from the database
+        // Replace the following with your actual authentication and user retrieval logic
+        String username = credentials[0];
+        User user = userRepository.getUserByUsername(username);
+
+        return user;
+    }
+
+    // Helper method to extract the encoded credentials from the Authorization header
+    private String extractEncodedCredentials(String authorizationHeader) {
+        // The authorizationHeader should contain the credentials prefixed with "Basic "
+        // For example: "Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+        String[] headerParts = authorizationHeader.split(" ");
+        if (headerParts.length == 2 && headerParts[0].equalsIgnoreCase("Basic")) {
+            return headerParts[1];
+        } else {
+            // Handle invalid header format or missing credentials
+            throw new IllegalArgumentException("Invalid Authorization header");
+        }
+    }
+
+    // Helper method to decode the credentials from Base64 encoding
+    private String[] decodeCredentials(String encodedCredentials) {
+        // Decode the Base64 encoded credentials
+        byte[] decodedBytes = Base64.getDecoder().decode(encodedCredentials);
+        String decodedCredentials = new String(decodedBytes);
+        return decodedCredentials.split(":");
     }
 }
