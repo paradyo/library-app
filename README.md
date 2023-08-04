@@ -26,6 +26,7 @@ This is the structure of the files in the app tier:
     │   │   ├── java
     │   │   │   ├── com.engineer.library
     │   │   │   │   ├── configuration                       # Contains the Spring configuration files.
+    │   │   │   │   ├── constant                            # Contains the constant values.
     │   │   │   │   ├── controller                          # Contains the Spring MVC controllers that handle HTTP requests.
     │   │   │   │   ├── exception                           # Contains the custom exception files.
     │   │   │   │   ├── model                               # Houses the data models or entities for your application.
