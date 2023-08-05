@@ -61,6 +61,12 @@ Will be here soon
 
 Will be here soon
 
+## 😴 TODO
+
+1. Book unit tests.
+2. GuestBook unit tests.
+3. Advanced User unit tests.
+
 ## ⚗️ Technologies list
 
 - Spring Boot DevTools
