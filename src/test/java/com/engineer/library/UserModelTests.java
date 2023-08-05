@@ -16,7 +16,7 @@ import java.util.NoSuchElementException;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class UserTests {
+class UserModelTests {
 
     @Autowired
     private UserRepository userRepository;

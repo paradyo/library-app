@@ -33,6 +33,14 @@ public class Book {
         this.isVisible = isVisible;
     }
 
+    public Book(int id, String name, String author, String imageS3Id, boolean isVisible) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.imageS3Id = imageS3Id;
+        this.isVisible = isVisible;
+    }
+
     public int getId() {
         return id;
     }

@@ -32,6 +32,14 @@ public class GuestBook {
         this.returnedDate = returnedDate;
     }
 
+    public GuestBook(int id, User user, Book book, LocalDate dateToReturn, LocalDate returnedDate) {
+        this.id = id;
+        this.user = user;
+        this.book = book;
+        this.dateToReturn = dateToReturn;
+        this.returnedDate = returnedDate;
+    }
+
     public int getId() {
         return id;
     }

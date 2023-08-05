@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,6 +25,11 @@ public class BookController {
 
     public BookController(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
+    }
+
+    @GetMapping(path = "/books/test/all", headers = Constant.API_VERSION_HEADER_NAME + "=v1.0")
+    public List<Book> getBooksV1dot0Test() {
+        return bookRepository.findAll();
     }
 
     @GetMapping(path = "/books", headers = Constant.API_VERSION_HEADER_NAME + "=v1.0")
