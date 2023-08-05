@@ -123,6 +123,8 @@ Also [download](https://github.com/paradyo/library-app/blob/main/readme_files/sp
 - [JMeter](https://jmeter.apache.org/)
 - [Jenkins](https://www.jenkins.io/)
 - [Docker](https://www.docker.com/)
+- [Junit](https://junit.org/)
+- [Mockito](https://site.mockito.org/)
 
 ## ⚠️ Warning
 
