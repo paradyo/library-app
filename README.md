@@ -53,7 +53,7 @@ This is the structure of the files in the app tier:
     ├── README.md
 ```
 
-## 🤕 Performance & Load Testing
+## 👌 Performance & Load Testing
 
 1. Go to [Apache JMeter](https://dev.mysql.com/doc/connector-j/8.1/en/connector-j-installing-maven.html) page then download the binary .zip file.
 2. Extract the zip file then inside the folder you'll see the bin folder.
@@ -77,15 +77,33 @@ As you can see testing results are perfect because of the REST API Caching mecha
 ![performance_testing_1](https://github.com/paradyo/library-app/blob/main/readme_photos/performance_testing_1.png)
 ![performance_testing_2](https://github.com/paradyo/library-app/blob/main/readme_photos/performance_testing_2.png)
 
+Also [download](https://github.com/paradyo/library-app/blob/main/readme_files/spring-boot-performance-test.jmx) the sample file for JMX.
 
 
-## 🤕 CI/CD
+## 🦾 CI/CD
 
-Will be here soon
-
-## 😴 Deployment
-
-Will be here soon
+1. Download the Jenkins via Docker.
+   - ```docker pull jenkins/jenkins```
+2. Run the image. Don't forget to check the ports. It may be same with application port.
+   - ```docker run -p 8080:8080 -p 50000:50000 --restart=on-failure jenkins/jenkins```
+3. Write the admin password and install the plugins.
+4. Create the first admin user.
+5. Apply your Jenkins URL.
+6. Go to Manage Extensions and search for [AWS Elastic Beanstalk Publisher](https://plugins.jenkins.io/aws-beanstalk-publisher-plugin/)
+7. Then go  to AWS Elastic Beanstalk and create the application.
+8. Crate Access Key from IAM console in AWS.
+9. Go to Manage Jenkins -> System -> Add new credentials to AWS Elastic Beanstalk Plugin.
+9. Create a job in Jenkins -> Source Code Management -> Git. Fill the informations.
+10. Go to Build Steps -> Invoke top-level Maven targets.
+    - ```
+      clean
+      compile
+      test
+      package
+      ```
+11. Add Post-Build Action -> Deploy into AWS Elastic Beanstalk -> Fill the inputs.
+12. Add Additional behaviors for S3 Bucket informations. Save it.
+13. Then click Build Now. You can schedule it to check Git changes from Build Triggers in Configuration page at Jenkins.
 
 ## 😴 TODO
 
@@ -100,8 +118,11 @@ Will be here soon
 - Spring Security
 - Validation
 - Spring Data JPA
-- Spring Boot Actuator
+- [Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
 - [MySQL Connector J](https://dev.mysql.com/doc/connector-j/8.1/en/connector-j-installing-maven.html)
+- [JMeter](https://jmeter.apache.org/)
+- [Jenkins](https://www.jenkins.io/)
+- [Docker](https://www.docker.com/)
 
 ## ⚠️ Warning
 
