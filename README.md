@@ -63,9 +63,9 @@ Will be here soon
 
 ## 😴 TODO
 
-1. Book unit tests.
-2. GuestBook unit tests.
-3. Advanced User unit tests.
+1. User Mockito REST API tests.
+2. Book unit tests.
+3. GuestBook unit and Mockito tests.
 
 ## ⚗️ Technologies list
 
