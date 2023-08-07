@@ -2,6 +2,10 @@
 
 This project was developed for education purposes. Feel free to use :)
 
+## 👨🏻‍💻 Never forget to read the Medium post for architecture!
+
+[Click here for detailed Medium post.](https://paradyo.medium.com/how-an-engineer-builds-software-library-app-786a1bc95cf8)
+
 ## 🚀 Start using it
 
 1. Open the project directory with your favorite editor. Wait for synchronization.
